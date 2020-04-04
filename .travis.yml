@@ -32,3 +32,9 @@ script:
     - cd build/
     - cmake ..
     - cmake --build .
+    - cd ../tests/
+    - mkdir build
+    - cd build/
+    - cmake ..
+    - cmake --build .
+    - ./tests

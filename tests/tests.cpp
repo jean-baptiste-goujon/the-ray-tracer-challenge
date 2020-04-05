@@ -2,7 +2,7 @@
 #include <boost/test/included/unit_test.hpp>
 
 #include <cmath>
-#include "vec.hpp"
+#include "vec.cpp"
 
 using namespace boost::test_tools;
 

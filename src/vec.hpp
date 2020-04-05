@@ -18,6 +18,7 @@ namespace rtc{
 
         bool operator==(const vec& other) const;
         bool operator!=(const vec& other) const;
+        vec operator+(const vec& other) const;
 
         friend std::ostream& operator<<(std::ostream& stream, const vec& vec);
     };

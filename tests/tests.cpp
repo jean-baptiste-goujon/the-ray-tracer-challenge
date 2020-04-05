@@ -1,7 +1,6 @@
 #define BOOST_TEST_MODULE test boost framework
 #include <boost/test/included/unit_test.hpp>
 
-#include <cmath>
 #include "vec.cpp"
 
 using namespace boost::test_tools;
@@ -64,4 +63,21 @@ BOOST_AUTO_TEST_CASE(compairing_two_vec){
     BOOST_TEST_REQUIRE(reference != infinity);
 }
 
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(vec_operatins)
+BOOST_AUTO_TEST_CASE(adding_vector_to_point_gives_new_point){
+    rtc::vec start{3.0, 4.0, 5.0};
+    rtc::vec vector{1.0, 2.0, 3.0, 0.0};
+
+    rtc::vec expected_result{4.0, 6.0, 8.0, 1.0};
+    BOOST_TEST_REQUIRE(start + vector == expected_result);
+}
+
+BOOST_AUTO_TEST_CASE(adding_two_vectors_gives_a_new_vector){
+    rtc::vec first_vec{1.0, 2.0, 3.0, 0.0};
+    rtc::vec second_vec{1.0, 2.0, 3.0, 0.0};
+
+    BOOST_TEST_REQUIRE(first_vec+second_vec == rtc::vector(2.0, 4.0, 6.0));
+}
 BOOST_AUTO_TEST_SUITE_END()

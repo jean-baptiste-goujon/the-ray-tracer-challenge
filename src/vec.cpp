@@ -11,7 +11,15 @@ namespace rtc{
     }
     
     vec vec::operator+(const vec& other) const {
-        return vec{this->m_x + other.m_x, this->m_y + other.m_y, this->m_z + other.m_z, std::min(this->m_w + other.m_w, 1.0f)};
+        return vec{this->m_x + other.m_x, this->m_y + other.m_y, this->m_z + other.m_z, this->m_w + other.m_w};
+    }
+
+    vec vec::operator-(const vec& other) const {
+        return vec{this->m_x - other.m_x, this->m_y - other.m_y, this->m_z - other.m_z, this->m_w - other.m_w};
+    }
+
+    vec vec::operator-() const {
+        return vec{-this->m_x, -this->m_y, -this->m_z, -this->m_w};
     }
 
     std::ostream& operator<<(std::ostream& os, const vec& vec){

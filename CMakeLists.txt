@@ -8,6 +8,6 @@ add_library(project_warnings INTERFACE)
 include(cmake/CompilerWarnings.cmake)
 set_compiler_warnings(project_warnings)
 
-include_directories(include/rtc)
+include_directories(include/)
 add_executable(intro src/main.cpp src/vec.cpp)
 target_link_libraries(intro PRIVATE project_options project_warnings)

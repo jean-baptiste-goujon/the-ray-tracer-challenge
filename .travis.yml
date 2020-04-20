@@ -37,4 +37,4 @@ script:
     - cd build/
     - cmake ..
     - cmake --build .
-    - ./tests
+    - ./tests_vec

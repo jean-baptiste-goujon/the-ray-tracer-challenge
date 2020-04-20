@@ -5,6 +5,7 @@
 
 namespace rtc{
     constexpr auto EPSILON = 1e-9f;
+
     struct vec{
         float m_x;
         float m_y;
@@ -22,15 +23,11 @@ namespace rtc{
         vec operator-(const vec& other) const;
         vec operator-() const;
 
-        friend std::ostream& operator<<(std::ostream& stream, const vec& vec);
     };
 
-    vec point(float x, float y, float z){
-        return vec{x, y, z};
-    }
+    vec point(float x, float y, float z);
+    vec vector(float x, float y, float z);
 
-    vec vector(float x, float y, float z){
-        return vec{x, y, z, 0.0};
-    }
+    std::ostream& operator<<(std::ostream& stream, const vec& vec);
 }
 #endif

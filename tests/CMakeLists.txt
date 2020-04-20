@@ -1,5 +1,12 @@
-cmake_minimum_required(VERSION 3.12)
 project(tests)
+cmake_minimum_required(VERSION 3.12)
 
-add_executable(tests tests.cpp)
-target_include_directories(tests PRIVATE ../include/ ../src/)
+include_directories(../include/ ../include/rtc/)
+
+add_library(project_options INTERFACE)
+target_compile_features(project_options INTERFACE cxx_std_17)
+
+add_library(vec STATIC ../src/vec)
+
+add_executable(tests_vec tests tests_vec_operations)
+target_link_libraries(tests_vec PRIVATE project_options vec)

@@ -7,13 +7,13 @@ namespace rtc{
     constexpr auto EPSILON = 1e-9f;
 
     struct vec{
-        float m_x;
-        float m_y;
-        float m_z;
-        float m_w=1.0;
+        double m_x;
+        double m_y;
+        double m_z;
+        double m_w=1.0;
 
-        vec(const float x, const float y, const float z): m_x(x), m_y(y), m_z(z){};
-        vec(const float x, const float y, const float z, const float w): m_x{x}, m_y{y}, m_z{z}, m_w{w} {};
+        vec(const double x, const double y, const double z): m_x(x), m_y(y), m_z(z){};
+        vec(const double x, const double y, const double z, const double w): m_x{x}, m_y{y}, m_z{z}, m_w{w} {};
 
         [[nodiscard]] inline bool is_point() const { return this->m_w > 0.0f;}
 
@@ -22,13 +22,15 @@ namespace rtc{
         vec operator+(const vec& other) const;
         vec operator-(const vec& other) const;
         vec operator-() const;
+        vec operator*(const double factor) const;
+        vec operator/(const double factor) const;
 
     };
 
-    inline vec point(float x, float y, float z){
+    inline vec point(double x, double y, double z){
         return vec{x, y, z};
     }
-    inline vec vector(float x, float y, float z){
+    inline vec vector(double x, double y, double z){
         return vec{x, y, z, 0.0};
     }
 

@@ -39,10 +39,30 @@ BOOST_AUTO_TEST_CASE(substracting_two_vectors_gives_a_vector){
     BOOST_TEST_REQUIRE(first_vector - second_vector == rtc::vector(1.0, 1.0, 1.0));
 }
 
-BOOST_AUTO_TEST_CASE(negating_a_vec_gives_its_opposite){
+BOOST_AUTO_TEST_CASE(negating_a_vec_gives_its_opposite)
+{
     rtc::vec point{2.0, 1.0, 0.2};
 
     auto expected_negated = rtc::vec{-2.0, -1.0, -0.2, -1.0};
     BOOST_TEST_REQUIRE(-point == expected_negated);
 }
+
+BOOST_AUTO_TEST_CASE(vec_supports_scalar_product)
+{
+    auto point = rtc::point(1.2, 2.3, 2.3);
+    auto expected_result = rtc::vec{2.4, 4.6, 4.6, 2.0};
+    BOOST_TEST_REQUIRE(point * 2 == expected_result);
+
+    expected_result = rtc::vec{0.6, 1.15, 1.15, 0.5};
+    BOOST_TEST_REQUIRE(point * 0.5 == expected_result);
+}
+
+BOOST_AUTO_TEST_CASE(vec_supports_scalar_division)
+{
+    auto point = rtc::point(1.2, 2.3, 2.3);
+    auto expected_result = rtc::vec{0.6, 1.15, 1.15, 0.5};
+    
+    BOOST_TEST_REQUIRE(point / 2 == expected_result);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

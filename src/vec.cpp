@@ -26,10 +26,3 @@ std::ostream& rtc::operator<<(std::ostream& os, const rtc::vec& vec){
     return os;
 }
 
-rtc::vec rtc::point(float x, float y, float z){
-    return vec{x, y, z};
-}
-
-rtc::vec rtc::vector(float x, float y, float z){
-    return rtc::vec{x, y, z, 0.0};
-}

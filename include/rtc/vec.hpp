@@ -12,8 +12,8 @@ namespace rtc{
         float m_z;
         float m_w=1.0;
 
-        vec(float x, float y, float z): m_x(x), m_y(y), m_z(z){};
-        vec(float x, float y, float z, float w): m_x{x}, m_y{y}, m_z{z}, m_w{w} {};
+        vec(const float x, const float y, const float z): m_x(x), m_y(y), m_z(z){};
+        vec(const float x, const float y, const float z, const float w): m_x{x}, m_y{y}, m_z{z}, m_w{w} {};
 
         [[nodiscard]] inline bool is_point() const { return this->m_w > 0.0f;}
 
@@ -25,8 +25,12 @@ namespace rtc{
 
     };
 
-    vec point(float x, float y, float z);
-    vec vector(float x, float y, float z);
+    inline vec point(float x, float y, float z){
+        return vec{x, y, z};
+    }
+    inline vec vector(float x, float y, float z){
+        return vec{x, y, z, 0.0};
+    }
 
     std::ostream& operator<<(std::ostream& stream, const vec& vec);
 }

@@ -4,8 +4,6 @@
 #include <ostream>
 
 namespace rtc{
-    constexpr auto EPSILON = 1e-9f;
-
     struct vec{
         double m_x;
         double m_y;

@@ -1,6 +1,10 @@
 #include "rtc/vec.hpp"
 #include <algorithm>
 
+namespace {
+constexpr auto EPSILON = 1e-9f;
+}
+
 bool rtc::vec::operator==(const rtc::vec& other) const
 {
     return std::abs(this->m_x - other.m_x) < EPSILON && std::abs(this->m_y - other.m_y) < EPSILON && std::abs(this->m_z - other.m_z) < EPSILON && std::abs(this->m_w - other.m_w) < EPSILON;

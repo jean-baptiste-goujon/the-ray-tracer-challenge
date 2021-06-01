@@ -7,42 +7,45 @@ constexpr auto EPSILON = 1e-9;
 
 bool rtc::vec::operator==(const rtc::vec& other) const
 {
-    return std::abs(this->m_x - other.m_x) < EPSILON && std::abs(this->m_y - other.m_y) < EPSILON && std::abs(this->m_z - other.m_z) < EPSILON && std::abs(this->m_w - other.m_w) < EPSILON;
+  return std::abs(this->m_x - other.m_x) < EPSILON && 
+         std::abs(this->m_y - other.m_y) < EPSILON &&
+         std::abs(this->m_z - other.m_z) < EPSILON &&
+         std::abs(this->m_w - other.m_w) < EPSILON;
 }
     
 bool rtc::vec::operator!=(const rtc::vec& other) const 
 {
-    return !(*this == other);
+  return !(*this == other);
 }
     
 rtc::vec rtc::vec::operator+(const rtc::vec& other) const 
 {
-    return vec{this->m_x + other.m_x, this->m_y + other.m_y, this->m_z + other.m_z, this->m_w + other.m_w};
+  return vec{this->m_x + other.m_x, this->m_y + other.m_y, this->m_z + other.m_z, this->m_w + other.m_w};
 }
 
 rtc::vec rtc::vec::operator-(const rtc::vec& other) const 
 {
-    return vec{this->m_x - other.m_x, this->m_y - other.m_y, this->m_z - other.m_z, this->m_w - other.m_w};
+  return vec{this->m_x - other.m_x, this->m_y - other.m_y, this->m_z - other.m_z, this->m_w - other.m_w};
 }
 
 rtc::vec rtc::vec::operator-() const 
 {
-    return vec{-this->m_x, -this->m_y, -this->m_z, -this->m_w};
+  return vec{-this->m_x, -this->m_y, -this->m_z, -this->m_w};
 }
 
 rtc::vec rtc::vec::operator*(const double factor) const 
 {
-    return vec{factor * this->m_x, factor * this->m_y, factor * this->m_z, factor * this->m_w};
+  return vec{factor * this->m_x, factor * this->m_y, factor * this->m_z, factor * this->m_w};
 }
 
 rtc::vec rtc::vec::operator/(const double factor) const 
 {
-    return vec{this->m_x / factor, this->m_y / factor, this->m_z / factor, this->m_w / factor};
+  return vec{this->m_x / factor, this->m_y / factor, this->m_z / factor, this->m_w / factor};
 }
 
 std::ostream& rtc::operator<<(std::ostream& os, const rtc::vec& vec)
 {
-    os << vec.m_x << ' ' << vec.m_y << ' ' << vec.m_z << ' ' << vec.m_w;
-    return os;
+  os << vec.m_x << ' ' << vec.m_y << ' ' << vec.m_z << ' ' << vec.m_w;
+  return os;
 }
 

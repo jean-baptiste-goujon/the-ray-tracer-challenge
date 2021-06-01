@@ -2,7 +2,7 @@
 #include <algorithm>
 
 namespace {
-constexpr auto EPSILON = 1e-9f;
+constexpr auto EPSILON = 1e-9;
 }
 
 bool rtc::vec::operator==(const rtc::vec& other) const

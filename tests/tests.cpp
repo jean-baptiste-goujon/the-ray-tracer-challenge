@@ -5,12 +5,12 @@
 using namespace Catch::literals;
 
 TEST_CASE("Can be done specifying all coordinates", "[creating a vec struct]") {
-    rtc::vec point{1.0f, 1.0f, 4.4f, 1.0f};
+  rtc::vec point{1.0f, 1.0f, 4.4f, 1.0f};
 
-    REQUIRE(point.m_x == 1.0_a);
-    REQUIRE(point.m_y == 1.0_a);
-    REQUIRE(point.m_z == 4.4_a);
-    REQUIRE(point.m_w == 1.0_a);
+  REQUIRE(point.m_x == 1.0_a);
+  REQUIRE(point.m_y == 1.0_a);
+  REQUIRE(point.m_z == 4.4_a);
+  REQUIRE(point.m_w == 1.0_a);
 }
 
 TEST_CASE("is created as point by default", "[creating a vec struct]") {

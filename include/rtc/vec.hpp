@@ -13,7 +13,7 @@ namespace rtc{
         vec(const double x, const double y, const double z): m_x(x), m_y(y), m_z(z){};
         vec(const double x, const double y, const double z, const double w): m_x{x}, m_y{y}, m_z{z}, m_w{w} {};
 
-        [[nodiscard]] inline bool is_point() const { return this->m_w > 0.0f;}
+        [[nodiscard]] inline bool is_point() const { return this->m_w > 0.0;}
 
         bool operator==(const vec& other) const;
         bool operator!=(const vec& other) const;

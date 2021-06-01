@@ -1,6 +1,5 @@
 #ifndef RTC_VEC_H
 #define RTC_VEC_H
-#include <cmath>
 #include <ostream>
 
 namespace rtc{
@@ -22,6 +21,8 @@ namespace rtc{
     vec operator-() const;
     vec operator*(const double factor) const;
     vec operator/(const double factor) const;
+
+    double magnitude() const;
   };
 
   inline vec point(double x, double y, double z){

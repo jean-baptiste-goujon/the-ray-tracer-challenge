@@ -1,6 +1,7 @@
 #include <catch2/catch_all.hpp>
 
 #include "rtc/vec.hpp"
+#include <cmath>
 
 TEST_CASE("Adding vector to point gives new point", "[vec operations]") {
   rtc::vec start{3.0, 4.0, 5.0};
@@ -61,3 +62,23 @@ TEST_CASE("vec supports scalar division", "[vec operations]") {
   REQUIRE(point / 2 == expected_result);
 }
 
+TEST_CASE("The magnitude of a unit vector is 1", "[vec operations]") {
+  auto unit_vec = rtc::vector(1.0, 0.0, 0.0);
+  REQUIRE(unit_vec.magnitude() == 1.0);
+
+  unit_vec = rtc::vector(0.0, 1.0, 0.0);
+  REQUIRE(unit_vec.magnitude() == 1.0);
+
+  unit_vec = rtc::vector(0.0, 0.0, 1.0);
+  REQUIRE(unit_vec.magnitude() == 1.0);
+}
+
+TEST_CASE("The magnitude of a vector uses Pythagoras' theorem", "[vec operations]") {
+  double expected_magnitude = std::sqrt(14.0);
+
+  auto vector = rtc::vector(1.0, 2.0, 3.0);
+  REQUIRE(vector.magnitude() == Catch::Approx(expected_magnitude));
+
+  auto inverse_vector = rtc::vector(-1.0, -2.0, -3.0);
+  REQUIRE(vector.magnitude() == Catch::Approx(expected_magnitude));
+}

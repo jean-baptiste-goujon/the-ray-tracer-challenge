@@ -1,4 +1,5 @@
 #include "rtc/vec.hpp"
+#include <cmath>
 #include <algorithm>
 
 namespace {
@@ -49,3 +50,7 @@ std::ostream& rtc::operator<<(std::ostream& os, const rtc::vec& vec)
   return os;
 }
 
+double rtc::vec::magnitude() const
+{
+  return std::hypot(m_x, m_y, m_z);
+}

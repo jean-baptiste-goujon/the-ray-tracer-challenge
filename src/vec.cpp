@@ -71,3 +71,11 @@ double rtc::vec::dot(const vec& operand) const
        + m_z * operand.m_z 
        + m_w * operand.m_w;
 }
+
+rtc::vec rtc::vec::cross(const vec& operand) const
+{
+  return rtc::vec{m_y * operand.m_z - m_z * operand.m_y,
+                  m_z * operand.m_x - m_x * operand.m_z,
+                  m_x * operand.m_y - m_y * operand.m_x,
+                  0.0};
+}

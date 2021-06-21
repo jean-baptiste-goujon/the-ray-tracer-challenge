@@ -69,6 +69,20 @@ TEST_CASE("vec supports dot product", "[vec operations]") {
   REQUIRE(vector_1.dot(vector_2) == 20.0);
 }
 
+TEST_CASE("vec supports cross product", "[vec operations]") {
+  auto vector_1 = rtc::vec{1.0, 2.0, 3.0, 0.0};
+  auto vector_2 = rtc::vec{2.0, 3.0, 4.0, 0.0};
+  
+  REQUIRE(vector_1.cross(vector_2) == rtc::vector(-1.0, 2.0, -1.0));
+}
+
+TEST_CASE("cross product is non commutative", "[vec operations]") {
+  auto vector_1 = rtc::vec{1.0, 2.0, 3.0, 0.0};
+  auto vector_2 = rtc::vec{2.0, 3.0, 4.0, 0.0};
+  
+  REQUIRE(vector_1.cross(vector_2) != vector_2.cross(vector_1));
+}
+
 TEST_CASE("The magnitude of a unit vector is 1", "[vec operations]") {
   auto unit_vec = rtc::vector(1.0, 0.0, 0.0);
   REQUIRE(unit_vec.magnitude() == 1.0);

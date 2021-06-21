@@ -50,6 +50,15 @@ std::ostream& rtc::operator<<(std::ostream& os, const rtc::vec& vec)
   return os;
 }
 
+void rtc::vec::normalise()
+{
+  double factor=magnitude();
+  m_x/=factor;
+  m_y/=factor;
+  m_z/=factor;
+  m_w/=factor;
+}
+
 double rtc::vec::magnitude() const
 {
   return std::hypot(m_x, m_y, m_z);

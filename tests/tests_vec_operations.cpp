@@ -82,3 +82,28 @@ TEST_CASE("The magnitude of a vector uses Pythagoras' theorem", "[vec operations
   auto inverse_vector = rtc::vector(-1.0, -2.0, -3.0);
   REQUIRE(vector.magnitude() == Catch::Approx(expected_magnitude));
 }
+
+TEST_CASE("Normalising a unit vector does not modify it", "[vec normalisation]") {
+  auto unit_vector = rtc::vector(1.0, 0.0, 0.0);
+  auto original = unit_vector;
+
+  unit_vector.normalise();
+
+  REQUIRE(unit_vector == original);
+}
+
+TEST_CASE("Normalising an arbitrary vector", "[vec normalisation]") {
+  auto vector = rtc::vector(1.0, 2.0, 3.0);
+
+  vector.normalise();
+
+  REQUIRE(vector == rtc::vec{0.2672612419, 0.534522483, 0.801783725, 0.0});
+}
+
+TEST_CASE("A normalised vector has a magnitude of 1", "[vec normalisation]") {
+  auto vector = rtc::vector(3.0, 8.0, 832.0);
+
+  vector.normalise();
+
+  REQUIRE(vector.magnitude() == 1.0);
+}

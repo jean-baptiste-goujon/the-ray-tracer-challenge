@@ -22,6 +22,8 @@ namespace rtc{
     vec operator*(const double factor) const;
     vec operator/(const double factor) const;
 
+    double dot(const vec& operand) const;
+
     void normalise();
     double magnitude() const;
   };

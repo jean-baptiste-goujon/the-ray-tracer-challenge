@@ -63,3 +63,11 @@ double rtc::vec::magnitude() const
 {
   return std::hypot(m_x, m_y, m_z);
 }
+
+double rtc::vec::dot(const vec& operand) const
+{
+  return m_x * operand.m_x 
+       + m_y * operand.m_y 
+       + m_z * operand.m_z 
+       + m_w * operand.m_w;
+}

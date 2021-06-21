@@ -62,6 +62,13 @@ TEST_CASE("vec supports scalar division", "[vec operations]") {
   REQUIRE(point / 2 == expected_result);
 }
 
+TEST_CASE("vec supports dot product", "[vec operations]") {
+  auto vector_1 = rtc::vec{1.0, 2.0, 3.0, 0.0};
+  auto vector_2 = rtc::vec{2.0, 3.0, 4.0, 0.0};
+  
+  REQUIRE(vector_1.dot(vector_2) == 20.0);
+}
+
 TEST_CASE("The magnitude of a unit vector is 1", "[vec operations]") {
   auto unit_vec = rtc::vector(1.0, 0.0, 0.0);
   REQUIRE(unit_vec.magnitude() == 1.0);
